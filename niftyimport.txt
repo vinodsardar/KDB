@@ -1,3 +1,18 @@
 nifty:("SDTFFFF"; enlist ",") 0:`nifty1.csv
 select first index,avg close by 15 xbar `minute$time from nifty
 select first index,avg close by 1 xbar `hh$time from nifty
+
+
+
+
+------- For Join -------------
+t1:([sym:`IBM`MSFT`AAPL]price:3?100)
+t2:([sym:`AAPL`IBM]price:2?100;size:2?500)
+
+t1 ij t2
+t1 lj t2
+t1 uj t2
+t1 pj t2
+ej[`sym;t1;t2]
+
+
